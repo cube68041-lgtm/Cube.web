@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cubew.eb — web development startup</title>
+  <!-- Google Font & Font Awesome for clean icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf9fc;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1e1a2b;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* header / branding */
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .brand h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #2b1b3d, #4a2e6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+    }
+
+    .brand .dot {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #8b5cf6;
+      line-height: 1;
+      margin-left: -0.2rem;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #5b4b6e;
+      margin-bottom: 2.5rem;
+      border-left: 4px solid #a78bfa;
+      padding-left: 1.2rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* intro section */
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      gap: 2rem;
+    }
+
+    .intro-text {
+      max-width: 550px;
+    }
+
+    .intro-text p {
+      font-size: 1.1rem;
+      color: #2e2638;
+      margin-bottom: 0.8rem;
+    }
+
+    .badge {
+      background: #ede9fe;
+      color: #5b21b6;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      display: inline-block;
+      letter-spacing: 0.3px;
+      border: 1px solid #c4b5fd;
+    }
+
+    .cta-button {
+      background: #2b1b3d;
+      color: white;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 18px -6px rgba(43, 27, 61, 0.2);
+      border: 1px solid #3b2a4f;
+    }
+
+    .cta-button i {
+      font-size: 0.9rem;
+    }
+
+    .cta-button:hover {
+      background: #3f2a5a;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 22px -8px rgba(43, 27, 61, 0.3);
+    }
+
+    /* section title */
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 2.8rem 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title i {
+      color: #8b5cf6;
+      font-size: 1.6rem;
+    }
+
+    .section-title span {
+      background: #ede9fe;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      color: #4c1d95;
+      margin-left: 0.5rem;
+    }
+
+    /* project grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.8rem 1.5rem 1.8rem;
+      box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.02);
+      border: 1px solid #f0ecf9;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 38px -12px rgba(107, 70, 193, 0.15), 0 6px 12px -6px rgba(0,0,0,0.05);
+      border-color: #d9cff3;
+    }
+
+    .card-icon {
+      background: #f5f2fe;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.3rem;
+      color: #6d4aff;
+      font-size: 1.8rem;
+      transition: background 0.2s;
+    }
+
+    .project-card:hover .card-icon {
+      background: #e9e2fd;
+    }
+
+    .project-card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.01em;
+      color: #1e1a2b;
+    }
+
+    .project-card .filename {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.8rem;
+      background: #f3f1f9;
+      padding: 0.25rem 0.8rem;
+      border-radius: 30px;
+      color: #4f3b6e;
+      display: inline-block;
+      margin-bottom: 1rem;
+      border: 1px solid #e5def5;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      color: #4a4059;
+      margin-bottom: 1.6rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .card-link {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #6d4aff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.2s, color 0.2s;
+      border-bottom: 1.5px solid transparent;
+    }
+
+    .card-link i {
+      font-size: 0.8rem;
+      transition: transform 0.2s;
+    }
+
+    .card-link:hover {
+      color: #4b1fb0;
+      gap: 0.8rem;
+    }
+
+    .card-link:hover i {
+      transform: translateX(3px);
+    }
+
+    /* footer / contact */
+    .footer-note {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #e4dbf2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #6b5d7e;
+    }
+
+    .footer-note .social i {
+      font-size: 1.2rem;
+      margin-left: 1rem;
+      color: #7c6b98;
+      transition: color 0.2s;
+    }
+
+    .footer-note .social i:hover {
+      color: #6d4aff;
+    }
+
+    /* tiny responsive */
+    @media (max-width: 600px) {
+      body { padding: 1.5rem 1rem; }
+      .brand h1 { font-size: 2rem; }
+      .brand .dot { font-size: 1.8rem; }
+      .tagline { font-size: 1rem; }
+      .intro { flex-direction: column; align-items: flex-start; }
+      .section-title { font-size: 1.5rem; }
+      .project-grid { gap: 1.3rem; }
+    }
+
+    /* demo link styling – extra */
+    .demo-note {
+      font-size: 0.8rem;
+      color: #948aa8;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- header -->
+    <div class="brand">
+      <h1>cubew</h1><span class="dot">.eb</span>
+    </div>
+    <div class="tagline">
+      we build fast, modern & scalable web experiences
+    </div>
+
+    <!-- intro / hero -->
+    <div class="intro">
+      <div class="intro-text">
+        <p>
+          <span class="badge">⚡ web development startup</span>
+        </p>
+        <p style="font-size:1.25rem; font-weight:500; margin-top:0.8rem;">
+          From concept to launch — we craft digital products that perform.
+        </p>
+        <p style="color:#544c64; margin-top:0.4rem;">
+          Clean code, pixel-perfect design, and rock-solid architecture.
+        </p>
+      </div>
+      <button class="cta-button" onclick="alert('Thanks for reaching out! (demo) 📬')">
+        <i class="fas fa-paper-plane"></i> start a project
+      </button>
+    </div>
+
+    <!-- project showcase -->
+    <div class="section-title">
+      <i class="fas fa-cube"></i> our work
+      <span>6 live examples</span>
+    </div>
+
+    <div class="project-grid">
+      <!-- card 1: candle1.html -->
+      <div class="project-card">
+        <div class="card-icon"><i class="fas fa-fire"></i></div>
+        <h3>Candlelight Store</h3>
+        <div class="filename">Candle1</div>
+        <p>E‑commerce concept for artisanal candles – clean product grid, soft palette, and smooth hover states.</p>
+        <a href="candle1.html" class="card-link" target="_blank" rel="noopener">
+          view demo <i class="fas fa-arrow-right"></i>
+        </a>
+        <div class="demo-note">opens in new tab</div>
+      </div>
+
+      <!-- card 2: candle2.html -->
+      <div class="project-card">
+        <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+        <h3>Candle2 — Ambient</h3>
+        <div class="filename">Candle2</div>
+        <p>Alternative candle shop layout with dark mode accents, testimonial slider, and minimal checkout.</p>
+        <a href="candle2.html" class="card-link" target="_blank" rel="noopener">
+          view demo <i class="fas fa-arrow-right"></i>
+        </a>
+        <div class="demo-note">opens in new tab</div>
+      </div>
+
+      <!-- card 3: cafeshop.html -->
+      <div class="project-card">
+        <div class="card-icon"><i class="fas fa-mug-hot"></i></div>
+        <h3>Daily Grind Café</h3>
+        <div class="filename">Cofe Shop</div>
+        <p>Modern café website with menu showcase, online order teaser, and location map integration.</p>
+        <a href="cofeshop.html" class="card-link" target="_blank" rel="noopener">
+          view demo <i class="fas fa-arrow-right"></i>
+        </a>
+        <div class="demo-note">opens in new tab</div>
+      </div>
+
+      <!-- card 4: cube_web.html (showcase itself) -->
+      <div class="project-card">
+        <div class="card-icon"><i class="fas fa-globe"></i></div>
+        <h3>Cube Web — Agency</h3>
+        <div class="filename">CubeWeb</div>
+        <p>Our own agency landing page: bold typography, service cards, and interactive portfolio teaser.</p>
+        <a href="cube_web.html" class="card-link" target="_blank" rel="noopener">
+          view demo <i class="fas fa-arrow-right"></i>
+        </a>
+        <div class="demo-note">opens in new tab</div>
+      </div>
+
+      <!-- card 5: electricstore.html -->
+      <div class="project-card">
+        <div class="card-icon"><i class="fas fa-bolt"></i></div>
+        <h3>Volt Electric Store</h3>
+        <div class="filename">Electric Store</div>
+        <p>Product catalog for electronics – filter UI, compare feature, and responsive product cards.</p>
+        <a href="electricstore.html" class="card-link" target="_blank" rel="noopener">
+          view demo <i class="fas fa-arrow-right"></i>
+        </a>
+        <div class="demo-note">opens in new tab</div>
+      </div>
+
+      <!-- card 6: gym.html -->
+      <div class="project-card">
+        <div class="card-icon"><i class="fas fa-dumbbell"></i></div>
+        <h3>Iron Pulse Gym</h3>
+        <div class="filename">GYM</div>
+        <p>Fitness studio website with class schedule, trainer profiles, and membership signup mockup.</p>
+        <a href="gym.html" class="card-link" target="_blank" rel="noopener">
+          view demo <i class="fas fa-arrow-right"></i>
+        </a>
+        <div class="demo-note">opens in new tab</div>
+      </div>
+    </div>
+
+    <!-- footer / contact -->
+    <div class="footer-note">
+      <div>© 2025 cubew.eb — built with <i class="fas fa-heart" style="color:#e879b9;"></i> for the modern web</div>
+      <div class="social">
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-x-twitter"></i>
+        <i class="fab fa-linkedin-in"></i>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

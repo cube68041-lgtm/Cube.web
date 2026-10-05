@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cube · electric store</title>
+  <!-- Font Awesome for icons (optional, but adds a nice touch) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- RESET & GLOBAL ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: #f8faff;
+      color: #1e1e2f;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ---------- HEADER / NAV ---------- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background: #ffffff;
+      box-shadow: 0 8px 20px rgba(0, 20, 50, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+      border-bottom: 2px solid #e9ecf5;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #0b1e3a;
+    }
+
+    .logo i {
+      color: #0a7bff;
+      font-size: 2rem;
+      filter: drop-shadow(0 4px 6px rgba(10, 123, 255, 0.2));
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, #0b1e3a 0%, #0a7bff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      color: #2e3b4e;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      transition: 0.2s ease;
+      font-size: 1.05rem;
+    }
+
+    .nav-links a:hover {
+      color: #0a7bff;
+    }
+
+    .cart-icon {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #f0f5ff;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      color: #0a7bff;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .cart-icon i {
+      font-size: 1.2rem;
+    }
+
+    .cart-icon:hover {
+      background: #e0ebff;
+      cursor: pointer;
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 3rem 5% 2rem;
+      background: linear-gradient(145deg, #ffffff 0%, #f2f8ff 100%);
+      border-bottom: 1px solid #e0e8f2;
+    }
+
+    .hero-text {
+      max-width: 550px;
+    }
+
+    .hero-text .badge {
+      display: inline-block;
+      background: #0a7bff10;
+      color: #0a7bff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      margin-bottom: 1rem;
+      border: 1px solid #0a7bff30;
+    }
+
+    .hero-text h1 {
+      font-size: 3.3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #0b1e3a;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-text h1 i {
+      color: #0a7bff;
+      font-style: normal;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #3e4e64;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: #0a7bff;
+      color: white;
+      font-weight: 600;
+      padding: 0.9rem 2.4rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: 0.2s;
+      box-shadow: 0 12px 22px -8px rgba(10, 123, 255, 0.5);
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: #0062d6;
+      transform: translateY(-2px);
+      box-shadow: 0 18px 28px -10px #0a7bff;
+    }
+
+    .hero-visual {
+      position: relative;
+      padding: 1rem 0;
+    }
+
+    .hero-visual img {
+      max-width: 380px;
+      width: 100%;
+      border-radius: 32px;
+      box-shadow: 0 30px 40px -20px rgba(0, 30, 60, 0.3);
+      transition: 0.4s ease;
+    }
+
+    .hero-visual img:hover {
+      transform: scale(1.02);
+    }
+
+    /* ---------- SECTION TITLE ---------- */
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin: 3.5rem 0 1rem;
+      color: #0b1e3a;
+      letter-spacing: -0.02em;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #4d607a;
+      margin-bottom: 2.8rem;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ---------- PRODUCT GRID (4 IMAGES) ---------- */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2rem;
+      padding: 1rem 5% 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 1.5rem 1.5rem 1.8rem;
+      box-shadow: 0 10px 28px -8px rgba(0, 20, 50, 0.08);
+      transition: all 0.3s ease;
+      border: 1px solid #edf2fc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 38px -18px rgba(10, 123, 255, 0.35);
+      border-color: #c3d9ff;
+    }
+
+    .product-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 20px;
+      background: #f3f9ff;
+      margin-bottom: 1.2rem;
+      transition: 0.25s ease;
+      box-shadow: 0 8px 14px -8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card:hover img {
+      transform: scale(1.02);
+    }
+
+    .product-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0b1e3a;
+      margin-bottom: 0.4rem;
+    }
+
+    .product-card .price {
+      font-weight: 700;
+      color: #0a7bff;
+      font-size: 1.4rem;
+      margin: 0.3rem 0 1rem;
+      letter-spacing: -0.3px;
+    }
+
+    .product-card .price small {
+      font-size: 0.9rem;
+      color: #7b8ba5;
+      font-weight: 400;
+      text-decoration: line-through;
+      margin-left: 6px;
+    }
+
+    .btn-add {
+      background: #f0f5ff;
+      border: none;
+      color: #0a7bff;
+      font-weight: 600;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      width: 100%;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: 0.2s;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-add i {
+      font-size: 0.95rem;
+    }
+
+    .btn-add:hover {
+      background: #0a7bff;
+      color: white;
+      border-color: #0a7bff;
+    }
+
+    /* ---------- FEATURES / TRUST BADGES ---------- */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 2.5rem 8%;
+      background: #ffffff;
+      border-top: 1px solid #e6eefc;
+      border-bottom: 1px solid #e6eefc;
+      margin: 2rem 0 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #1e2b3c;
+      font-weight: 500;
+    }
+
+    .feature-item i {
+      font-size: 1.8rem;
+      color: #0a7bff;
+      background: #e9f0fe;
+      padding: 10px;
+      border-radius: 18px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      margin-top: auto;
+      background: #0b1e3a;
+      color: #b6c8e0;
+      padding: 3rem 5% 1.5rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      max-width: 1300px;
+      margin: 0 auto 2rem;
+    }
+
+    .footer-col h4 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #a0b6d4;
+      text-decoration: none;
+      line-height: 1.8;
+      font-size: 0.98rem;
+    }
+
+    .footer-col a:hover {
+      color: white;
+    }
+
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-logo i {
+      color: #0a7bff;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid #1f3250;
+      color: #8196b5;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      .hero-text {
+        max-width: 100%;
+      }
+
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+
+      .navbar {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem 6% 3rem;
+      }
+
+      .features {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+        padding: 2rem 8%;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .navbar {
+        padding: 1rem 6%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <i class="fas fa-cube"></i>
+      <span>Cube</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="cart-icon">
+      <i class="fas fa-shopping-bag"></i>
+      <span>Cart (0)</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="badge">⚡ New arrivals 2025</div>
+      <h1>Power up with <i>Cube</i> electrics</h1>
+      <p>Smart, sleek, and energy-efficient appliances that fit your modern life. Discover the future of home electronics.</p>
+      <a href="#" class="btn-primary"><i class="fas fa-bolt" style="margin-right: 8px;"></i>Shop now</a>
+    </div>
+    <div class="hero-visual">
+      <img src="imageel1.jpg" alt="Cube electric hero – modern appliance">
+    </div>
+  </section>
+
+  <!-- PRODUCT SECTION WITH 4 IMAGES -->
+  <h2 class="section-title">⚡ Cube essentials</h2>
+  <p class="section-sub">Four of our most-loved electrics – built to perform, designed to impress.</p>
+
+  <div class="product-grid">
+    <!-- Card 1: imageel1.jpg -->
+    <div class="product-card">
+      <img src="imageel1.jpg" alt="Cube electric product 1 – smart kettle">
+      <h3>Volt Kettle</h3>
+      <div class="price">$49.99 <small>$69.99</small></div>
+      <button class="btn-add"><i class="fas fa-plus-circle"></i> Add to cart</button>
+    </div>
+
+    <!-- Card 2: imageel2.jpg -->
+    <div class="product-card">
+      <img src="imageel2.jpg" alt="Cube electric product 2 – blender">
+      <h3>MixGo Blender</h3>
+      <div class="price">$79.99 <small>$99.99</small></div>
+      <button class="btn-add"><i class="fas fa-plus-circle"></i> Add to cart</button>
+    </div>
+
+    <!-- Card 3: imageel3.jpg -->
+    <div class="product-card">
+      <img src="imageel3.jpg" alt="Cube electric product 3 – air fryer">
+      <h3>AeroFry 5L</h3>
+      <div class="price">$129.99 <small>$159.99</small></div>
+      <button class="btn-add"><i class="fas fa-plus-circle"></i> Add to cart</button>
+    </div>
+
+    <!-- Card 4: imageel4.jpg -->
+    <div class="product-card">
+      <img src="imageel4.jpg" alt="Cube electric product 4 – espresso machine">
+      <h3>CubeBarista</h3>
+      <div class="price">$189.99 <small>$229.99</small></div>
+      <button class="btn-add"><i class="fas fa-plus-circle"></i> Add to cart</button>
+    </div>
+  </div>
+
+  <!-- FEATURES / TRUST BADGES -->
+  <div class="features">
+    <div class="feature-item">
+      <i class="fas fa-truck-fast"></i>
+      <span>Free 2-day shipping</span>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-rotate-left"></i>
+      <span>30-day returns</span>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-shield-halved"></i>
+      <span>2-year warranty</span>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-headset"></i>
+      <span>24/7 support</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <i class="fas fa-cube"></i> Cube
+        </div>
+        <p>Electric essentials for the modern home. Smart, reliable, and always in style.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="#">New arrivals</a><br>
+        <a href="#">Best sellers</a><br>
+        <a href="#">Kitchen</a><br>
+        <a href="#">Home</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">Contact us</a><br>
+        <a href="#">FAQs</a><br>
+        <a href="#">Shipping</a><br>
+        <a href="#">Returns</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a><br>
+        <a href="#"><i class="fab fa-x-twitter"></i> X</a><br>
+        <a href="#"><i class="fab fa-facebook"></i> Facebook</a><br>
+        <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+      </div>
+    </div>
+    <div class="copyright">
+      <i class="far fa-copyright"></i> 2025 Cube electric store. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NOVA — Creative Digital Studio</title>
+
+  <!-- Modern fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: #08080c;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Background glow */
+    body::before {
+      content: "";
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: #7c3aed;
+      filter: blur(180px);
+      opacity: .18;
+      top: -150px;
+      right: -100px;
+      z-index: -1;
+    }
+
+    nav {
+      width: 90%;
+      max-width: 1200px;
+      margin: 25px auto;
+      padding: 15px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(15,15,22,.65);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      position: sticky;
+      top: 15px;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: "Space Grotesk";
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: #a78bfa;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 25px;
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      min-height: 90vh;
+      max-width: 1200px;
+      margin: auto;
+      padding: 90px 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .tag {
+      color: #a78bfa;
+      font-weight: 600;
+      margin-bottom: 20px;
+      animation: fadeUp .8s ease;
+    }
+
+    h1 {
+      font-family: "Space Grotesk";
+      font-size: clamp(55px, 8vw, 100px);
+      line-height: .95;
+      letter-spacing: -5px;
+      animation: fadeUp 1s ease;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, #a78bfa, #f0abfc);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: #aaa;
+      max-width: 520px;
+      margin: 30px 0;
+      font-size: 18px;
+      line-height: 1.7;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      animation: fadeUp 1.4s ease;
+    }
+
+    .btn {
+      padding: 15px 25px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .primary {
+      background: white;
+      color: #09090b;
+    }
+
+    .primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(255,255,255,.15);
+    }
+
+    .secondary {
+      border: 1px solid #333;
+      color: white;
+    }
+
+    .secondary:hover {
+      border-color: #a78bfa;
+      transform: translateY(-4px);
+    }
+
+    .hero-image {
+      position: relative;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 35px;
+      display: block;
+      box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    }
+
+    .orb {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg,#a78bfa,#f0abfc);
+      top: -30px;
+      right: -30px;
+      filter: blur(1px);
+      animation: spin 6s linear infinite;
+    }
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 100px 30px;
+    }
+
+    .section-title {
+      font-family: "Space Grotesk";
+      font-size: 45px;
+      margin-bottom: 50px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 35px;
+      min-height: 230px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.07),
+        rgba(255,255,255,.02)
+      );
+      border-radius: 25px;
+      transition: .4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: #8b5cf6;
+      box-shadow: 0 20px 50px rgba(124,58,237,.12);
+    }
+
+    .icon {
+      font-size: 35px;
+      margin-bottom: 25px;
+    }
+
+    .card h3 {
+      font-family: "Space Grotesk";
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: #999;
+      line-height: 1.6;
+    }
+
+    .showcase {
+      border-radius: 30px;
+      padding: 70px 40px;
+      text-align: center;
+      background:
+        linear-gradient(135deg,
+        rgba(124,58,237,.25),
+        rgba(236,72,153,.12));
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .showcase h2 {
+      font-family: "Space Grotesk";
+      font-size: clamp(40px,6vw,70px);
+      margin-bottom: 20px;
+    }
+
+    .showcase p {
+      color: #bbb;
+      max-width: 600px;
+      margin: auto auto 30px;
+      line-height: 1.7;
+    }
+
+    footer {
+      border-top: 1px solid #222;
+      padding: 40px 30px;
+      text-align: center;
+      color: #777;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%,100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-18px);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg) translateX(10px);
+      }
+      100% {
+        transform: rotate(360deg) translateX(10px);
+      }
+    }
+
+    /* Mobile */
+    @media(max-width: 800px) {
+      nav a {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 60px;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">cubew<span>.eb</span></div>
+
+    <div>
+      <a href="#services">Services</a>
+      <a href="#vision">Vision</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <main class="hero">
+
+    <div>
+      <div class="tag">✦ DIGITAL EXPERIENCES, REIMAGINED</div>
+
+      <h1>
+        Ideas that<br>
+        <span>move.</span>
+      </h1>
+
+      <p>
+        We turn bold ideas into memorable digital experiences.
+        Strategy, design and technology — brought together under one roof.
+      </p>
+
+      <div class="buttons">
+        <a href="#services" class="btn primary">Explore cubew.eb →</a>
+        <a href="#contact" class="btn secondary">Start a project</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="orb"></div>
+
+      <img
+        src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1000&q=80"
+        alt="Creative workspace">
+    </div>
+
+  </main>
+
+  <!-- SERVICES -->
+  <section id="services">
+
+    <h2 class="section-title">What we create.</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">◈</div>
+        <h3>Digital Design</h3>
+        <p>
+          Interfaces with personality, clarity and a visual language
+          people remember.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">✦</div>
+        <h3>Brand Systems</h3>
+        <p>
+          Distinct identities built to stay recognizable across every
+          screen and experience.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">⌁</div>
+        <h3>Creative Technology</h3>
+        <p>
+          Fast, interactive digital products that make complex ideas
+          feel beautifully simple.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section id="vision">
+
+    <div class="showcase">
+
+      <h2>Make something<br>worth remembering.</h2>
+
+      <p>
+        The internet is full of noise. We believe great digital work
+        should feel different — useful, expressive and impossible to ignore.
+      </p>
+
+      <a href="#contact" class="btn primary">Let's build it →</a>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <h2 class="section-title">Your idea starts here.</h2>
+
+    <p style="color:#999;max-width:600px;line-height:1.8;">
+      Have a product, brand or impossible idea?
+      Bring the rough version. We'll help turn it into something real.
+    </p>
+
+    <br>
+
+    <a class="btn primary" href="mailto:hello@nova.example">
+      hello@cubew.eb.example
+    </a>
+
+  </section>
+
+  <footer>
+    © 2026 cubew.eb Studio — Crafted beyond ordinary.
+  </footer>
+
+</body>
+</html>
