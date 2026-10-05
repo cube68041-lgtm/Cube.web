@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cube — Artisan Coffee House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="cofe.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="#home" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24"><path d="M4 8h13v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 4c0 .8.8 1 .8 1.8M11 3.2c0 .9.9 1.1.9 2"/></svg>
+      </span>
+      <span>Cube<small>Coffee House</small></span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">Our Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+    </nav>
+
+    <a href="#visit" class="header-cta">Book a Table</a>
+
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= MOBILE DRAWER ================= -->
+<div class="drawer" id="drawer">
+  <a href="#home">Home</a>
+  <a href="#about">Our Story</a>
+  <a href="#menu">Menu</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#visit">Visit</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+
+  <div class="wrap">
+    <span class="eyebrow">Est. 2014 · Roasted In-House</span>
+    <h1 class="h-display">Where Every Cup Tells a <em>Story</em></h1>
+    <p>Small-batch beans, slow mornings and pastries pulled straight from the oven. Pull up a chair — your table is waiting.</p>
+
+    <div class="hero-actions">
+      <a href="#menu" class="btn btn-primary">Order Now</a>
+      <a href="#visit" class="btn btn-ghost">Find Us</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="st"><b>12</b><span>Bean Origins</span></div>
+      <div class="st"><b>9</b><span>Years Brewing</span></div>
+      <div class="st"><b>4.9</b><span>Avg. Rating</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <i></i>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span>Single Origin Beans</span><i>✦</i>
+    <span>Slow Roasted Daily</span><i>✦</i>
+    <span>Hand Poured</span><i>✦</i>
+    <span>Fresh Bakes at 6am</span><i>✦</i>
+    <span>Plant Based Options</span><i>✦</i>
+    <span>Locally Sourced</span><i>✦</i>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+
+    <div class="about-visual reveal">
+      <div class="about-img main"></div>
+      <div class="about-img sub"></div>
+      <div class="badge-float">
+        <div>
+          <b>9+</b>
+          <small>Years</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-copy">
+      <span class="eyebrow reveal">Our Story</span>
+      <h2 class="h-display reveal" data-d="1">A Neighbourhood Café Built on <em>Slow Mornings</em></h2>
+      <p class="reveal" data-d="2">Cube started as a tiny corner counter with one espresso machine and a stubborn belief that good coffee shouldn't be rushed. Nine years later, we still roast in small batches, still know our regulars by name, and still believe the best conversations happen over a second cup.</p>
+
+      <ul class="feature-list reveal" data-d="2">
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><b>Roasted in-house</b> — every batch dated and cupped before it hits the bar.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><b>Baked before sunrise</b> — croissants laminated by hand, never frozen.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><b>Direct trade</b> — we buy from twelve farms across four countries.</span>
+        </li>
+      </ul>
+
+      <p class="signature reveal" data-d="3">— Meera &amp; Arjun, founders</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= MENU ================= -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">What We Serve</span>
+      <h2 class="h-display">Crafted With <em>Care</em></h2>
+      <p class="lede" style="margin-inline:auto">Tap any item to add it to your order list — then send it straight to us on WhatsApp.</p>
+    </div>
+
+    <div class="tabs reveal" data-d="1" id="tabs">
+      <button class="tab active" data-cat="all">All</button>
+      <button class="tab" data-cat="coffee">Coffee</button>
+      <button class="tab" data-cat="bakery">Bakery</button>
+      <button class="tab" data-cat="dessert">Desserts</button>
+      <button class="tab" data-cat="bites">Bites</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+
+      <!-- COFFEE -->
+      <article class="menu-item" data-cat="coffee" data-name="Double Espresso" data-price="120" data-icon="☕">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">☕</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Double Espresso</h3><span class="mi-dots"></span><span class="mi-price">₹120</span></div>
+          <p>Rich, syrupy pull from our Ethiopian single origin. Notes of cocoa and dried fig.</p>
+        </div>
+      </article>
+
+      <article class="menu-item" data-cat="coffee" data-name="Cappuccino" data-price="180" data-icon="🥛">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🥛</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Cappuccino</h3><span class="mi-dots"></span><span class="mi-price">₹180</span></div>
+          <p>Velvet micro-foam over a double shot, dusted with Madagascan cocoa.</p>
+        </div>
+      </article>
+
+      <article class="menu-item" data-cat="coffee" data-name="Flat White" data-price="190" data-icon="🍶">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🍶</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Flat White</h3><span class="mi-dots"></span><span class="mi-price">₹190</span></div>
+          <p>Silky steamed milk, ristretto base. Small cup, serious punch.</p>
+          <span class="mi-tag">Barista's Pick</span>
+        </div>
+      </article>
+      <article class="menu-item" data-cat="coffee" data-name="18-Hour Cold Brew" data-price="200" data-icon="🧊">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🧊</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>18-Hour Cold Brew</h3><span class="mi-dots"></span><span class="mi-price">₹200</span></div>
+          <p>Steeped overnight, served over a single clear ice sphere. Smooth and low-acid.</p>
+        </div>
+      </article>
+
+      <article class="menu-item" data-cat="coffee" data-name="Salted Caramel Latte" data-price="220" data-icon="🍯">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🍯</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Salted Caramel Latte</h3><span class="mi-dots"></span><span class="mi-price">₹220</span></div>
+          <p>House-made caramel, flaky sea salt, espresso and steamed milk.</p>
+          <span class="mi-tag">Most Loved</span>
+        </div>
+      </article>
+
+      <article class="menu-item" data-cat="coffee" data-name="Dark Mocha" data-price="210" data-icon="🍫">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🍫</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Dark Mocha</h3><span class="mi-dots"></span><span class="mi-price">₹210</span></div>
+          <p>70% single-origin chocolate melted into espresso, topped with cream.</p>
+        </div>
+      </article>
+
+      <!-- BAKERY -->
+      <article class="menu-item" data-cat="bakery" data-name="Butter Croissant" data-price="140" data-icon="🥐">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🥐</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Butter Croissant</h3><span class="mi-dots"></span><span class="mi-price">₹140</span></div>
+          <p>72 layers of laminated dough, baked golden every morning at 6am.</p>
+        </div>
+      </article>
+
+      <article class="menu-item" data-cat="bakery" data-name="Almond Danish" data-price="160" data-icon="🥧">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🥧</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Almond Danish</h3><span class="mi-dots"></span><span class="mi-price">₹160</span></div>
+          <p>Frangipane filled, topped with toasted flakes and a whisper of icing sugar.</p>
+        </div>
+      </article>
+
+      <article class="menu-item" data-cat="bakery" data-name="Cinnamon Roll" data-price="170" data-icon="🌀">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🌀</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Cinnamon Roll</h3><span class="mi-dots"></span><span class="mi-price">₹170</span></div>
+          <p>Warm, gooey and glazed with cream cheese frosting. Served heated.</p>
+        </div>
+      </article>
+
+      <article class="menu-item" data-cat="bakery" data-name="Sourdough &amp; Cultured Butter" data-price="150" data-icon="🍞">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🍞</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Sourdough &amp; Cultured Butter</h3><span class="mi-dots"></span><span class="mi-price">₹150</span></div>
+          <p>Naturally leavened 24-hour loaf, thick-cut and toasted to order.</p>
+        </div>
+      </article>
+
+      <!-- DESSERTS -->
+      <article class="menu-item" data-cat="dessert" data-name="Classic Tiramisu" data-price="260" data-icon="🍰">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🍰</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Classic Tiramisu</h3><span class="mi-dots"></span><span class="mi-price">₹260</span></div>
+          <p>Espresso-soaked savoiardi, mascarpone cream, bitter cocoa dust.</p>
+          <span class="mi-tag">Chef's Favourite</span>
+        </div>
+      </article>
+
+      <article class="menu-item" data-cat="dessert" data-name="Basque Cheesecake" data-price="280" data-icon="🧁">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🧁</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Basque Cheesecake</h3><span class="mi-dots"></span><span class="mi-price">₹280</span></div>
+          <p>Burnt on top, molten in the middle. Served with a berry compote.</p>
+        </div>
+      </article>
+
+      <article class="menu-item" data-cat="dessert" data-name="Dark Chocolate Tart" data-price="240" data-icon="🍫">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🍫</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Dark Chocolate Tart</h3><span class="mi-dots"></span><span class="mi-price">₹240</span></div>
+          <p>Ganache in a cocoa nib shell, finished with flaked salt.</p>
+        </div>
+      </article>
+
+      <article class="menu-item" data-cat="dessert" data-name="Banana Walnut Bread" data-price="160" data-icon="🍌">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🍌</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Banana Walnut Bread</h3><span class="mi-dots"></span><span class="mi-price">₹160</span></div>
+          <p>Moist, spiced and best paired with a flat white.</p>
+        </div>
+      </article>
+
+      <!-- BITES -->
+      <article class="menu-item" data-cat="bites" data-name="Smashed Avocado Toast" data-price="290" data-icon="🥑">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🥑</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Smashed Avocado Toast</h3><span class="mi-dots"></span><span class="mi-price">₹290</span></div>
+          <p>Sourdough, chilli flakes, lemon zest, feta and a soft poached egg.</p>
+        </div>
+      </article>
+
+      <article class="menu-item" data-cat="bites" data-name="Breakfast Bagel" data-price="250" data-icon="🥯">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🥯</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Breakfast Bagel</h3><span class="mi-dots"></span><span class="mi-price">₹250</span></div>
+          <p>Toasted sesame bagel, cream cheese, smoked cheese and rocket.</p>
+        </div>
+      </article>
+
+      <article class="menu-item" data-cat="bites" data-name="Grilled Panini" data-price="310" data-icon="🥪">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🥪</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Grilled Panini</h3><span class="mi-dots"></span><span class="mi-price">₹310</span></div>
+          <p>Mozzarella, roasted pepper, pesto and tomato on ciabatta.</p>
+        </div>
+      </article>
+
+      <article class="menu-item" data-cat="bites" data-name="Soup of the Day" data-price="220" data-icon="🍲">
+        <span class="add-pill"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</span>
+        <div class="mi-icon">🍲</div>
+        <div class="mi-body">
+          <div class="mi-top"><h3>Soup of the Day</h3><span class="mi-dots"></span><span class="mi-price">₹220</span></div>
+          <p>Ask your server — always seasonal, always served with sourdough.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">The Space</span>
+      <h2 class="h-display">Come Sit <em>Awhile</em></h2>
+      <p class="lede" style="margin-inline:auto">Warm light, worn wooden tables and the constant hum of the grinder. This is where the neighbourhood gathers.</p>
+    </div>
+
+    <div class="gal-grid reveal" data-d="1">
+      <div class="gal g1"><span>The Roasting Bar</span></div>
+      <div class="gal g2"><span>Morning Light</span></div>
+      <div class="gal g3"><span>Fresh Beans</span></div>
+      <div class="gal g4"><span>Latte Art</span></div>
+      <div class="gal g5"><span>Corner Tables</span></div>
+      <div class="gal g6"><span>Pour Over</span></div>
+      <div class="gal g7"><span>Bakes</span></div>
+    </div>
+  </div>
+</section>
+<!-- ================= REVIEWS ================= -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Kind Words</span>
+      <h2 class="h-display">What Our Regulars <em>Say</em></h2>
+    </div>
+
+    <div class="slider reveal" data-d="1" id="slider">
+      <div class="slide active">
+        <div class="stars">★★★★★</div>
+        <blockquote>"The flat white here ruined every other café for me. Nine years of coming back and it's never once been off."</blockquote>
+        <div class="who">
+          <div class="avatar">A</div>
+          <div class="who-text"><strong>Ananya Rao</strong><span>Regular since 2016</span></div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I wrote half my book at the corner table by the window. The staff never rushed me, just kept the coffee coming."</blockquote>
+        <div class="who">
+          <div class="avatar">K</div>
+          <div class="who-text"><strong>Kabir Mehta</strong><span>Writer &amp; Neighbour</span></div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="stars">★★★★★</div>
+        <blockquote>"That basque cheesecake is genuinely dangerous. Burnt top, molten centre — I've driven across town for it."</blockquote>
+        <div class="who">
+          <div class="avatar">S</div>
+          <div class="who-text"><strong>Sara Fernandes</strong><span>Pastry Enthusiast</span></div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="stars">★★★★★</div>
+        <blockquote>"They remember my order and my dog's name. That's the kind of place this is. Nowhere else comes close."</blockquote>
+        <div class="who">
+          <div class="avatar">R</div>
+          <div class="who-text"><strong>Rohan Iyer</strong><span>Weekend Regular</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dots" id="dots"></div>
+  </div>
+</section>
+
+<!-- ================= VISIT ================= -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Come Say Hello</span>
+      <h2 class="h-display">Find Your <em>Table</em></h2>
+    </div>
+
+    <div class="visit-grid">
+      <div class="info-card reveal">
+        <div class="ic-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        </div>
+        <h3>Opening Hours</h3>
+        <div class="hours-row" data-day="1"><span>Monday – Friday</span><b>7:30 – 21:00</b></div>
+        <div class="hours-row" data-day="6"><span>Saturday</span><b>8:00 – 23:00</b></div>
+        <div class="hours-row" data-day="0"><span>Sunday</span><b>8:00 – 23:00</b></div>
+      </div>
+
+      <div class="info-card reveal" data-d="1">
+        <div class="ic-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        </div>
+        <h3>Find Us</h3>
+        <p><b>42 Maple Lane</b><br>Bandra West, Mumbai 400050<br><br>Two minutes from the station, look for the green awning.</p>
+      </div>
+
+      <div class="info-card reveal" data-d="2">
+        <div class="ic-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+        </div>
+        <h3>Get In Touch</h3>
+        <p><b>+91 99227 24697</b><br>hello@cube.in<br><br>Walk-ins welcome. Groups of 6+ please call ahead.</p>
+      </div>
+    </div>
+
+    <div class="visit-cta reveal">
+      <div>
+        <h3>Reserve your spot</h3>
+        <p>Weekends fill up fast — book a table and we'll have it ready.</p>
+      </div>
+      <a href="tel:+919922724697" class="btn">Call to Book</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="#home" class="logo">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24"><path d="M4 8h13v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 4c0 .8.8 1 .8 1.8M11 3.2c0 .9.9 1.1.9 2"/></svg>
+          </span>
+          <span>Cube<small>Coffee House</small></span>
+        </a>
+        <p>Small-batch roasted, hand-poured and served with a side of good conversation since 2014.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.6" cy="6.4" r="1"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M14 8.5h2.5V5.5H14c-2 0-3.5 1.5-3.5 3.5v2H8.5v3h2v6.5h3V14h2.3l.7-3h-3V9.3c0-.5.3-.8.5-.8Z"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M21 5.4a7.6 7.6 0 0 1-2.2.6 3.8 3.8 0 0 0 1.7-2.1 7.5 7.5 0 0 1-2.4.9 3.8 3.8 0 0 0-6.5 3.4A10.7 10.7 0 0 1 3.8 4.4a3.8 3.8 0 0 0 1.2 5.1 3.7 3.7 0 0 1-1.7-.5 3.8 3.8 0 0 0 3 3.7 3.8 3.8 0 0 1-1.7.1 3.8 3.8 0 0 0 3.5 2.6 7.6 7.6 0 0 1-5.6 1.6A10.7 10.7 0 0 0 18.2 6.6 7.6 7.6 0 0 0 21 5.4Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#menu">Full Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#visit">Visit Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>More</h4>
+        <ul>
+          <li><a href="#">Private Events</a></li>
+          <li><a href="#">Coffee Beans</a></li>
+          <li><a href="#">Gift Cards</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Wholesale</a></li>
+        </ul>
+      </div>
+
+      <div class="newsletter">
+        <h4>Stay in the Loop</h4>
+        <p>New roasts, seasonal menus and the occasional free pastry. No spam, promise.</p>
+        <form class="nl-form" id="nlForm">
+          <input type="email" id="nlEmail" placeholder="your@email.com" aria-label="Email address">
+          <button type="submit" aria-label="Subscribe">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+        <p class="nl-msg" id="nlMsg"></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Cube Coffee House. All rights reserved.</span>
+      <span><a href="#">Privacy</a> · <a href="#">Terms</a> · Made with ☕ in Mumbai</span>
+    </div>
+  </div>
+</footer>
+<!-- ================= CART FAB ================= -->
+<button class="cart-fab" id="cartFab" aria-label="Open order list">
+  <svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6 5 2H2"/></svg>
+  <span>Order</span>
+  <span class="fab-badge" id="fabBadge">0</span>
+</button>
+
+<!-- ================= BACK TO TOP ================= -->
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+<!-- ================= OVERLAY ================= -->
+<div class="overlay" id="overlay"></div>
+
+<!-- ================= CART DRAWER ================= -->
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Order list">
+
+  <header class="cart-head">
+    <div>
+      <span class="eyebrow">Your Selection</span>
+      <h3 id="cartTitle">Order List</h3>
+    </div>
+    <button class="cart-close" id="cartClose" aria-label="Close order list">
+      <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </header>
+
+  <div class="cart-scroll">
+
+    <!-- ITEMS -->
+    <div id="cartItems"></div>
+
+    <!-- EMPTY -->
+    <div class="cart-empty" id="cartEmpty">
+      <div class="ce-icon">🛒</div>
+      <p>Your order list is empty</p>
+      <span>Tap any item on the menu to add it.</span>
+    </div>
+
+    <!-- CHECKOUT FORM -->
+    <form class="checkout" id="checkoutForm" novalidate>
+      <a href="#" class="back-to-cart" id="backToCart">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Back to order list
+      </a>
+
+      <h4>Your Details</h4>
+
+      <!-- DINE IN / DELIVERY TOGGLE -->
+      <div class="dine-toggle" id="dineToggle" role="tablist" aria-label="Order type">
+        <button type="button" class="dine-opt active" data-mode="dine" role="tab" aria-selected="true">
+          <svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M12 20V9"/><path d="M8 4v4a4 4 0 0 0 8 0V4"/></svg>
+          <span>Dine In</span>
+        </button>
+        <button type="button" class="dine-opt" data-mode="delivery" role="tab" aria-selected="false">
+          <svg viewBox="0 0 24 24"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
+          <span>Delivery</span>
+        </button>
+      </div>
+
+      <label class="cf-field">
+        <span>Full Name</span>
+        <input type="text" id="cName" placeholder="e.g. Aisha Khan" autocomplete="name">
+        <em class="err" id="errName">Please enter your name.</em>
+      </label>
+
+      <label class="cf-field">
+        <span>Mobile Number</span>
+        <input type="tel" id="cMobile" placeholder="e.g. 99227 24697" autocomplete="tel">
+        <em class="err" id="errMobile">Please enter a valid mobile number.</em>
+      </label>
+
+      <label class="cf-field" id="tableField">
+        <span>Table Number</span>
+        <input type="text" id="cTable" placeholder="e.g. 7" inputmode="numeric">
+        <em class="err" id="errTable">Please enter your table number.</em>
+      </label>
+
+      <label class="cf-field" id="addressField" hidden>
+        <span>Delivery Address</span>
+        <textarea id="cAddress" placeholder="Flat / House no., street, area, city, pincode"></textarea>
+        <em class="err" id="errAddress">Please enter your full address.</em>
+      </label>
+
+      <label class="cf-field">
+        <span>Order Notes <em>(optional)</em></span>
+        <textarea id="cNotes" placeholder="Allergies, less sugar, extra hot…"></textarea>
+      </label>
+    </form>
+
+  </div>
+
+  <footer class="cart-foot" id="cartFoot">
+    <div class="cf-row"><span>Items</span><b id="cartCount">0</b></div>
+    <div class="cf-row total"><span>Total</span><b id="cartTotal">₹0</b></div>
+
+    <button class="send-btn" id="sendBtn">
+      <svg class="send-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2.2-5.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+      <span id="sendLabel">Send Order on WhatsApp</span>
+    </button>
+    <p class="cart-note" id="cartNote">Your order will open in WhatsApp, ready to send to us.</p>
+  </footer>
+
+</aside>
+
+<!-- ================= TOAST ================= -->
+<div class="toast" id="toast">
+  <span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+  <span id="toastMsg">Added to order</span>
+</div>
+
+<script src="cofe.js"></script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cube · candle shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #faf7f2;
+      font-family: 'Inter', sans-serif;
+      color: #2e2b27;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at 20% 30%, rgba(255, 235, 205, 0.4) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem 2rem; }
+
+    /* ---------- NAV ---------- */
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.5rem 0 1rem 0; flex-wrap: wrap; gap: 1rem;
+    }
+    .logo { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.03em; color: #2e2b27; }
+    .logo span { display: inline-block; animation: floatLogo 3s ease-in-out infinite; }
+    .logo span:nth-child(2) { animation-delay: 0.2s; }
+    .logo span:nth-child(3) { animation-delay: 0.4s; }
+    .logo span:nth-child(4) { animation-delay: 0.6s; }
+    @keyframes floatLogo {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+      100% { transform: translateY(0); }
+    }
+    .nav-links { display: flex; gap: 2.2rem; font-weight: 400; color: #5f5a54; }
+    .nav-links a { text-decoration: none; color: inherit; transition: color 0.2s ease, transform 0.2s ease; display: inline-block; }
+    .nav-links a:hover { color: #b57e5c; transform: translateY(-2px); }
+    .cart-icon { font-size: 1.2rem; color: #2e2b27; transition: transform 0.2s; }
+    .cart-icon:hover { transform: scale(1.05); }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      display: flex; align-items: center; gap: 3rem;
+      margin-top: 2rem; margin-bottom: 4rem; flex-wrap: wrap;
+    }
+    .hero-content { flex: 1 1 400px; animation: slideFade 1.2s ease forwards; }
+    .hero-image {
+      flex: 1 1 400px; display: flex; justify-content: center; opacity: 0;
+      animation: slideFade 1.2s 0.2s ease forwards, gentleFloat 6s 1.4s infinite ease-in-out;
+    }
+    @keyframes slideFade {
+      0% { opacity: 0; transform: translateY(25px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes gentleFloat {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    .hero-image img {
+      max-width: 100%; width: 100%; max-width: 360px; border-radius: 32px;
+      box-shadow: 0 30px 40px -20px rgba(0,0,0,0.3), 0 15px 25px -10px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      object-fit: cover; display: block;
+    }
+    .hero-image img:hover {
+      transform: scale(1.02) translateY(-6px);
+      box-shadow: 0 40px 50px -20px rgba(0,0,0,0.4);
+    }
+    .hero-content h1 {
+      font-size: clamp(2.8rem, 7vw, 4.8rem); font-weight: 700; line-height: 1.1;
+      letter-spacing: -0.03em; margin-bottom: 1rem;
+    }
+    .highlight { color: #b57e5c; display: inline-block; animation: softGlow 2.5s infinite alternate; }
+    @keyframes softGlow {
+      0% { text-shadow: 0 0 4px rgba(181,126,92,0.1); }
+      100% { text-shadow: 0 0 16px rgba(181,126,92,0.4); }
+    }
+    .hero-content p {
+      font-size: 1.2rem; color: #5f5a54; max-width: 520px;
+      margin-bottom: 2rem; line-height: 1.7;
+    }
+    .badge {
+      display: inline-block; background: rgba(181,126,92,0.15); color: #b57e5c;
+      font-weight: 600; font-size: 0.9rem; padding: 0.4rem 1.2rem;
+      border-radius: 40px; margin-bottom: 1.2rem; letter-spacing: 0.5px;
+    }
+    .btn {
+      display: inline-block; background: #2e2b27; color: #faf7f2;
+      padding: 1rem 2.8rem; border-radius: 60px; font-weight: 600;
+      font-size: 1rem; text-decoration: none; letter-spacing: 0.5px;
+      border: none; cursor: pointer;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 8px 18px -8px rgba(46,43,39,0.4);
+      position: relative; overflow: hidden;
+    }
+    .btn i { margin-left: 8px; transition: transform 0.25s; }
+    .btn:hover {
+      background: #b57e5c; transform: translateY(-4px);
+      box-shadow: 0 20px 30px -10px rgba(181,126,92,0.5);
+    }
+    .btn:hover i { transform: translateX(5px); }
+    .btn::after {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      width: 0; height: 0; border-radius: 50%;
+      background: rgba(255,255,255,0.2); transform: translate(-50%, -50%);
+      transition: width 0.4s, height 0.4s;
+    }
+    .btn:active::after { width: 300px; height: 300px; }
+    .product-meta {
+      display: flex; gap: 2rem; margin-top: 2rem;
+      color: #7a736c; font-size: 0.95rem;
+    }
+    .product-meta i { color: #b57e5c; margin-right: 6px; transition: transform 0.2s; }
+    .product-meta span { transition: color 0.2s; }
+    .product-meta span:hover { color: #2e2b27; }
+    .product-meta span:hover i { transform: scale(1.15); }
+
+    /* ---------- SECTION TITLES ---------- */
+    .section-title {
+      text-align: center; font-size: 2rem; font-weight: 700;
+      letter-spacing: -0.02em; margin-bottom: 0.5rem;
+    }
+    .section-sub { text-align: center; color: #7a736c; margin-bottom: 2.5rem; font-size: 1rem; }
+
+    /* ---------- PRODUCT GRID ---------- */
+    .products {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem; margin-bottom: 5rem;
+    }
+    .product-card {
+      background: #fff; border-radius: 24px; overflow: hidden;
+      box-shadow: 0 10px 30px -15px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0; animation: cardIn 0.8s ease forwards;
+    }
+    .product-card:nth-child(1) { animation-delay: 0.1s; }
+    .product-card:nth-child(2) { animation-delay: 0.25s; }
+    .product-card:nth-child(3) { animation-delay: 0.4s; }
+    .product-card:nth-child(4) { animation-delay: 0.55s; }
+    @keyframes cardIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 40px -18px rgba(0,0,0,0.25);
+    }
+    .product-card img {
+      width: 100%; aspect-ratio: 4/5; object-fit: cover;
+      display: block; transition: transform 0.5s ease;
+    }
+    .product-card:hover img { transform: scale(1.05); }
+    .product-info { padding: 1.2rem 1.3rem 1.5rem; }
+    .product-info h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .product-info .price { color: #b57e5c; font-weight: 700; font-size: 0.95rem; }
+
+    /* ---------- STORY ---------- */
+    .story {
+      display: flex; align-items: center; gap: 3rem;
+      background: #fff; border-radius: 32px; padding: 3rem;
+      box-shadow: 0 15px 40px -25px rgba(0,0,0,0.2);
+      margin-bottom: 4rem; flex-wrap: wrap;
+    }
+    .story-image { flex: 1 1 280px; display: flex; justify-content: center; }
+    .story-image img {
+      width: 100%; max-width: 300px; border-radius: 24px;
+      box-shadow: 0 20px 30px -18px rgba(0,0,0,0.3);
+      transition: transform 0.4s ease;
+    }
+    .story-image img:hover { transform: scale(1.03) rotate(-1deg); }
+    .story-text { flex: 2 1 400px; }
+    .story-text h2 { font-size: 2rem; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .story-text p { color: #5f5a54; margin-bottom: 1.5rem; line-height: 1.7; }
+    .story-text .btn { padding: 0.85rem 2.2rem; font-size: 0.95rem; }
+
+    /* ---------- FOOTER ---------- */
+    .footer-note {
+      margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e3ddd6;
+      display: flex; justify-content: space-between; flex-wrap: wrap;
+      gap: 1rem; color: #7a736c; font-size: 0.9rem; margin-bottom: 3rem;
+    }
+    .footer-note i { color: #b57e5c; margin-right: 6px; transition: transform 0.2s; }
+    .footer-note span { transition: color 0.2s; }
+    .footer-note span:hover { color: #2e2b27; }
+    .footer-note span:hover i { transform: scale(1.15); }
+
+    @media (max-width: 700px) {
+      .container { padding: 1rem 1.5rem; }
+      .navbar { flex-direction: column; align-items: flex-start; }
+      .nav-links { gap: 1.5rem; width: 100%; justify-content: space-between; }
+      .hero { flex-direction: column-reverse; text-align: center; margin-top: 1rem; gap: 2rem; }
+      .hero-content p { margin-left: auto; margin-right: auto; }
+      .product-meta { justify-content: center; }
+      .hero-image img { max-width: 280px; }
+      .btn { padding: 0.9rem 2.2rem; }
+      .story { padding: 2rem 1.5rem; text-align: center; }
+      .story-text h2 { font-size: 1.6rem; }
+      .story-image img { max-width: 220px; }
+    }
+    @media (max-width: 400px) {
+      .nav-links { font-size: 0.9rem; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <nav class="navbar">
+      <div class="logo"><span>c</span><span>u</span><span>b</span><span>e</span></div>
+      <div class="nav-links">
+        <a href="#">shop</a>
+        <a href="#">about</a>
+        <a href="#">journal</a>
+        <a href="#" class="cart-icon"><i class="fas fa-shopping-bag"></i></a>
+      </div>
+    </nav>
+
+    <!-- HERO (image #1 – healing candle) -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="badge"><i class="fas fa-fire" style="margin-right: 6px;"></i> new winter collection</div>
+        <h1>warm light,<br><span class="highlight">pure calm.</span></h1>
+        <p>Hand-poured candles inspired by quiet moments. Minimal form, deep fragrance — let cube transform your space.</p>
+        <a href="#" class="btn">explore candles <i class="fas fa-arrow-right"></i></a>
+        <div class="product-meta">
+          <span><i class="fas fa-leaf"></i> natural soy wax</span>
+          <span><i class="fas fa-clock"></i> 45+ hr burn</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://i.pinimg.com/736x/01/2e/1b/012e1b5f679308fb9b4fbd22ea5535cc.jpg"
+             alt="Scented healing candle" loading="eager">
+      </div>
+    </section>
+
+    <!-- PRODUCT GRID (rotating all images) -->
+    <h2 class="section-title">bestsellers</h2>
+    <p class="section-sub">Hand-poured, small batch, endlessly cozy.</p>
+
+    <section class="products">
+      <div class="product-card">
+        <img src="https://i.pinimg.com/736x/d4/a1/cd/d4a1cd752421b61ffb660dadce542b91.jpg" alt="Cube candle – aesthetic">
+        <div class="product-info"><h3>cube no.1</h3><div class="price">$28</div></div>
+      </div>
+      <div class="product-card">
+         <img src="https://i.pinimg.com/736x/01/2e/1b/012e1b5f679308fb9b4fbd22ea5535cc.jpg" alt="Cube candle – rose">
+         <div class="product-info"><h3>cube amber</h3><div class="price">$32</div></div>
+      </div>
+      <div class="product-card">
+        <img src="https://i.pinimg.com/736x/01/2e/1b/012e1b5f679308fb9b4fbd22ea5535cc.jpg" alt="Cube candle – rose">
+        <div class="product-info"><h3>cube rose</h3><div class="price">$30</div></div>
+      </div>
+      <div class="product-card">
+        <img src="https://i.pinimg.com/736x/f8/82/58/f882583859c22c0ee74d5451c1d7cdc6.jpg" alt="Cube candle – cedar">
+        <div class="product-info"><h3>cube cedar</h3><div class="price">$34</div></div>
+      </div>
+    </section>
+
+    <!-- STORY (image #2 – d4a1cd) -->
+    <section class="story">
+      <div class="story-image">
+        <img src="https://i.pinimg.com/736x/d4/a1/cd/d4a1cd752421b61ffb660dadce542b91.jpg"
+             alt="Candle aesthetic – cube story">
+      </div>
+      <div class="story-text">
+        <h2>made slowly,<br>burned softly.</h2>
+        <p>Every cube candle is hand-poured in small batches using clean-burning soy wax, lead-free cotton wicks, and phthalate-free fragrance. We believe in simple objects that bring warmth to everyday rituals.</p>
+        <a href="#" class="btn">our story <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer-note">
+      <span><i class="fas fa-seedling"></i> vegan & cruelty-free</span>
+      <span><i class="fas fa-recycle"></i> recyclable packaging</span>
+      <span><i class="fas fa-truck"></i> free shipping over $60</span>
+    </div>
+
+  </div>
+</body>
+</html>
